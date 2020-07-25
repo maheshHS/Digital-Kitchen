@@ -1,0 +1,25 @@
+<div class="new_purchase_container">
+  <%=form_for(@purchase, :html=> {:class=> "make_purchase_form"}) do |f|%>
+    <div class="purchase_heading">
+      <h2>Purchase</h2>
+    </div>
+    <div>
+      <%=f.label :Seller, class: "purchase_label"%>
+      <%= f.select :seller, ['Franchise', 'Hyperpure', 'Others/Local'],{ include_blank: false }, { :class => 'purchase_input purchase_select' }%>
+    </div>
+    <div>
+      <%=f.label :Cost, class: "purchase_label"%>
+      <%= f.text_field :cost, class: "purchase_input"%>
+    </div>
+    <div class="fields">
+      <%= f.label :Select_Materials, class: "purchase_label" %>
+      <%= f.fields_for  :items do |builder|%>
+        <%= render 'item', b: builder, itm_q: 0 %>
+      <% end %>
+    </div>
+    <div class="prod_btn_div">
+      <%= submit_tag "Save", class:"purchase_save" %>
+      <%= link_to_add_row('Add Item', f, :items, class: 'add_raw ') %>
+    </div>
+  <%end%>
+</div>

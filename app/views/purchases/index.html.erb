@@ -1,0 +1,33 @@
+<div class="purchase_container">
+  <table class="item-table purchase-table">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Seller </th>
+        <th>Date</th>
+        <th>Cost </th>
+        <th>User</th>
+      </tr>
+      <tbody class="item-body">
+        <%@purchases.each_with_index do |purchase,index|%>
+          <tr class="purchase-item" data-link="<%= purchase_path(purchase)%>">
+            <td><%= index + 1 %></td>
+            <td><%= purchase.seller%></td>
+            <td><%= purchase.created_at.to_date%></td>
+            <td><%= purchase.cost%></td>
+            <td><%= User.find(purchase.user_id).fullname if purchase.user_id %></td>
+          </tr>
+        <%end%>
+      </tbody>
+    </thead>
+  </table>
+  <div class="purchase_actions">
+    <%=link_to '<i class="fas fa-plus"></i>'.html_safe, new_purchase_path,class: "buy_button"%>
+  </div>
+</div>
+
+<script>
+  $("tr[data-link]").click(function() {
+  window.location = $(this).data("link")
+});
+</script>

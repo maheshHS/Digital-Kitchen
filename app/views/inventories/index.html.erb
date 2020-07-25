@@ -1,0 +1,43 @@
+<div class="items_container">
+  <div class="item_cards">
+    <% @inventories.each do |inventory|%>
+      <div class="item_card">
+        <div class="item_card_body">
+          <div class="card_action">
+            <span class="item_action_icon icon_edit">
+              <%= link_to '<i class="fas fa-edit icon_edit"></i>'.html_safe, edit_inventory_path(inventory)%>
+            </span>
+            <span class="item_action_icon icon_delete">
+              <!-- <i class="fas fa-trash-alt"></i> -->
+              <%= link_to '<i class="fas fa-trash-alt icon_delete"></i>'.html_safe, inventory, confirm: 'Are you sure?', method: :delete %>
+            </span>
+          </div>
+          <div class="card_title">
+            <H2><b><%=inventory.name%></b></H2>
+          </div>
+          <div class="card_description">
+            <%inventory.items.each do |item|%>
+              <p>
+                <%=item.title%>
+                <%quant = item.merge_tables.where(inventory: inventory, item: item).first.quantity%>
+                <%= "(" if quant%>
+                <%= quant  if quant%>
+                <%= ")" if quant%>
+              </p>
+            <%end%>
+          </div>
+        </div>
+      </div>
+    <% end%>
+  </div>
+  <div class="item_popup" id="itm_btn">
+    <i class="fas fa-plus"></i>
+    <div class="itm_pop">
+      <ul>
+        <li><%=link_to "Add Product", new_inventory_path, class: "items_path"%></li>
+        <li><%=link_to "Raw Materials", items_path, class: "items_path"%></li>
+        <li><%=link_to "Conversions", conversions_path, class: "items_path"%></li>
+        <ul>
+        </div>
+      </div>
+    </div>

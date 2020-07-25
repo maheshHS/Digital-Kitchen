@@ -1,0 +1,15 @@
+<header class="navbar">
+    <h5 class="logo"><%=link_to 'DigitalKitchen', root_path, class:'logo-a' %></h5>
+        <nav>  
+            <ul class="NavList">
+            <% if logged_in? %>
+                <li class="NavItem"><a href="<%= inventories_path%>">Inventory</a></li>
+                <li class="NavItem"><a href="<%= items_path%>">Raw Materials</a></li>
+                <li class="NavItem"><a href="#">Sales</a></li>
+                <li class="NavItem"><a href="<%= purchases_path%>">Purchase</a></li>
+                <li class="NavItem"><a href="#">Analytics</a></li>
+                <li class="NavItem"><%=link_to "Logout", logout_path, method: :delete %></li>
+            <% end %>
+            </ul>
+        </nav>
+</header>

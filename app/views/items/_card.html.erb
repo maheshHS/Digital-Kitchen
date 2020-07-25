@@ -1,0 +1,58 @@
+<div class="item_card">
+  <div class="item_card_body">
+    <div class="card_action">
+      <span class="item_action_icon">
+        <!-- <i class="fas fa-edit"></i> -->
+        <!-- <%= link_to '<i class="fas fa-edit icon icon_edit"></i>'.html_safe, item, method: :put %> -->
+        <%= link_to '<i class="fas fa-edit icon icon_edit"></i>'.html_safe, {} ,class: "edit_item_btn",id: item.id %>
+      </span>
+      <span class="item_action_icon icon_delete">
+        <%= link_to '<i class="fas fa-trash-alt icon_delete"></i>'.html_safe, item, confirm: 'Are you sure?', method: :delete%>
+      </span>
+    </div>
+    <div class="card_title">
+      <H2><b><%=item.title%></b></H2>
+    </div>
+    <div class="card_item_details">
+      <!-- <div class="card_description card_desc_item">
+        <p><%#=item.description%></p>
+      </div> -->
+      <div class="card_footer">
+        <span>
+          <p>Qunatity : <%=item.t_qunatity%></p>
+        </span>
+        <span>
+          <p>Cost : <%=item.cost%></p>
+        </span>
+        <span>
+          <p><small class="itm_dates">Last Update : <%=time_ago_in_words(item.updated_at)%></small></p>
+        </span>
+        <span>
+          <p><small class="itm_dates">Created On : <%=item.created_at.to_date %></small></p>
+        </span>
+        <!-- <span>
+          <p><small class="itm_dates">Created by : <%#=User.find(item.user_id).fullname if item.user_id%></small></p>
+        </span> -->
+      </div>
+    </div>
+  </div>
+</div>
+<div class="add_modal2" id="update_item_<%= item.id %>">
+  <div class="modal_item">
+    <%=form_for(item, :html=> {:class=> "form_item "}) do |f|%>
+      <h2 class="modal_heading">Update Raw Material</h2>
+      <%=f.label :title, class: "modal_label "%>
+      <%=f.text_field :title, class:"modal_input "%>
+      <%#=f.label :description, class: "modal_label "%>
+      <%#=f.text_field :description, class: "modal_input "%>
+      <%=f.label :Cost, class: "modal_label "%>
+      <%=f.text_field :cost, class:"modal_input "%>
+      <%= submit_tag "Update", class:"item_save" %>
+      <div class="update_cancel_item">
+        <span>
+          <i class="fas fa-times"></i>
+        </span>
+      </div>
+    <%end%>
+  </div>
+</div>

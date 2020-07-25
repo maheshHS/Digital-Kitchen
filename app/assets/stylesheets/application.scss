@@ -1,0 +1,72 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ //@import "bootstrap/scss/bootstrap";
+//colors
+$b1cd: #500033;
+$b1cl: #FF0077;
+$b2cd: #000050;
+$b2cl: #0033FF;
+$b3cd: #00501D;
+$b3cl: #00FF44;
+$b4cd: #554D00;
+$b4cl: #FF4E00;
+$b5cd: #300050;
+$b5cl: #8000FF;
+$black: #000;
+$white: #fff;
+$grey: #B5B4B4;
+
+html {
+    height: 100vh;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100%;
+}
+
+ .Container{
+    margin: 0;
+    padding: 0;
+    background-color: $b1cd;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+    .simplebar-scrollbar:before {
+        background-color:darken(blanchedalmond,0%);
+        //background-color: blanchedalmond;
+    }
+}
+
+.bg{
+    padding: 2rem;
+    background-color: rgba($black, .2);
+    width: 55%;
+    transform: skewX(7deg);
+    position: absolute;
+    height: 100%;
+    left: -10%;
+    padding-left: 20rem;    
+    transform-origin: 0 100%;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+

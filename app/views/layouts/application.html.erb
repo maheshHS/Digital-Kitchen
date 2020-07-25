@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DigitalKitchen</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <!--For Simple Bar -->
+    <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
+    <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
+    <!-- End -->
+  </head>
+  <body>
+    <!-- data-simplebar -->
+    <div class="Container" >
+      <div class="bg"></div>
+      <%= render "partials/navbar" %>
+      <%= yield %>
+    </div>
+    <%#= debug(params) if Rails.env.development? %>
+  </body>
+</html>

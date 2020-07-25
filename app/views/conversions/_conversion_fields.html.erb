@@ -1,0 +1,36 @@
+          
+<tr class="td_class">
+  <td><%=index + 1%></td>
+  <td><%=conv.name%></td>
+  <td><%=conv.quantity%></td>
+  <td><%=conv.converted_quant%></td>
+  <td><%= link_to '<i class="fas fa-edit i_edit"></i>'.html_safe, {}, class: "edit_cov_btn", id: index %>
+    <div class="conversion_modal_background2" id="conv_modal_<%= index %>" >
+      <%= form_for( conv, :method => :put ,:html=> {:class=> "conversion_modal2"})   do |fff|%>
+        <%= fff.label "Name"%>
+        <%= fff.text_field :name, :readonly => true%>
+        <%= fff.label "Qunatity"%>
+        <%= fff.text_field :quantity %>
+        <%= fff.label "Conversion Value"%>
+        <%= fff.text_field :converted_quant %>
+        <%= fff.submit "Update"%>
+        <div class="modal_remove2">
+          <span>
+            <i class="fas fa-times"></i>
+          </span>
+        </div>
+      <% end %>
+    </div>
+  </td>
+  <td><%= link_to '<i class="fas fa-trash-alt i_delete"></i>'.html_safe, conv, confirm: 'Are you sure?', method: :delete %></td>
+</tr>
+<!--<tr class="add_conversion_row">
+    <td></td>
+    
+     <td><%# = f.text_field :name%></td> 
+    <%# <td><%= f.select(:name, options_for_select(@items.map{ |c| [c.title, c.id]})) %></td> %>
+    <%# <td><%= f.text_field :quantity%></td> %>
+    <%# <td><%= f.text_field :converted_quant%></td> %>
+    <%# <td><i class="fas fa-edit i_edit"></i></td> %>
+    <td><i class="fas fa-trash-alt i_delete"></i></td>
+</tr>-->

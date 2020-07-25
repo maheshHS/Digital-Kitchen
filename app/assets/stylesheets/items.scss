@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+$black: #000;
+
+.items_container {
+    margin: 30px;
+    min-height: 80%;
+}
+
+.item_cards {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+    gap: 20px;
+    //min-height: 200px;
+    height: 200px;
+    .item_card{
+        opacity: 0.8;
+        border-radius: 2px;
+        height: 100%;
+        overflow: hidden;
+        padding: 15px;
+        background-color: whitesmoke;
+        .item_card_body{
+            //margin: 15px;
+            //padding: 10px;
+            height: 100%;
+            //overflow: hidden;
+            word-wrap: break-word;
+            .card_action{
+                float: right;
+                .item_action_icon{
+                    margin-right:5px;
+                    font-size: 1.2rem;
+                }
+                .icon_delete{
+                    color:#e2979c;
+                }
+                .icon_delete:hover{
+                    color:#e7305b;
+                    transition: 0.5s ease;
+                }
+                .icon_edit{
+                    color: #12cad6;
+                }
+                .icon_edit:hover{
+                    color: #0fabbc;
+                    transition: 0.5s ease;
+                }
+            }
+            .card_title {
+                letter-spacing: 2px;
+                margin-bottom: 10px;
+            }
+            .card_description{
+                //margin-bottom: 50px;
+                height: 58%;
+                overflow: hidden;
+                overflow-y: auto;
+            }
+            .card_item_quant{
+                margin-top: 15px;
+                letter-spacing: 2px;
+                bottom: 0;
+            }
+        }
+    }
+}
+
+
+
+.item_popup {
+    font-family: 'Montserrat', sans-serif;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    //background:#009879;
+    background-color: rgba($black, .5);
+    display: flex;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 30px;
+    text-decoration: none;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+    position: fixed;
+    right: 50px;
+    bottom: 20px;
+    .itm_pop{
+        font-family: 'Montserrat', sans-serif;
+        visibility: hidden;
+        font-size: 1.2rem;
+        letter-spacing: 0px;
+        opacity: 0;
+        color: #500033;
+        position: absolute;
+        bottom: 90px;
+        //right: 1px;
+        width: 280px;
+        height: 200px;
+        background: #fff;
+        padding: 20px;
+        box-sizing: border-box;
+        border-radius: 4px;
+        transition: 0.5s;
+        transform: translateX(-50%) translateY(-50px);   
+    }
+
+    .itm_pop:before {
+        content: ' ';
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background: #fff;
+        bottom: 0;
+        right: 1px;
+        border-radius: 0 20px 0 0;
+        transform: rotate(45deg);
+    }
+
+    .itm_pop ul {
+        opacity: 0.9;
+        display: flex;
+        align-items: left;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+        li{ 
+            cursor: pointer;   
+            opacity: 0.9;
+            font-weight: bold;
+            list-style: none;
+            padding: 10px;
+            margin: 5px;
+            width: 100%;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.5s;
+            
+            &:hover{
+                transform: scale(1.1);
+                z-index: 100;
+                background: #500033;
+                color: #fff;
+                box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            }
+        }
+     
+    }
+
+
+    &:hover{
+        .itm_pop{
+            visibility: visible;
+            opacity: 0.9;
+            transform: translateX(-50%) translateY(0px);
+        }
+    }
+}
+
+.modal_active{
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+.add_modal2,
+.add_modal{
+    font-family: 'Montserrat', sans-serif;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    transition: visibility 0s, opacity 0.5s;
+    .modal_item{
+        position: relative;
+        background-color: #fff;
+        //opacity: 0.9;
+        border-radius: 5px;
+        z-index: 1000;
+        width: 30%;
+        height: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 20px;
+        .form_item{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-direction: column;
+        }
+        .item_save{
+            color: #fff;
+            background-color: #500033;
+            border: none;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 16px 2px;
+            cursor: pointer;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+        .modal_heading{
+            color: #500033;
+            margin-top: 5px;
+            font-weight: bold;
+            
+        }
+        .modal_label{
+            color: #500033;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .modal_input{
+            border: 0;
+            outline: 0;
+            border-bottom: 2px solid #500033;
+            background: transparent;
+            font-size: 1.1rem;
+        }
+    }
+}
+
+.update_cancel_item,
+.modal_cancel{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    visibility: visible;
+    font-size: 25px;
+    color: #500033;
+    cursor: pointer;
+}
+
+.items_path{
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    display: block;
+}
+
+.itm_dates {
+    text-decoration: none;
+    text-shadow: none;
+    font-weight: 550;
+}
+
+
+//https://codepen.io/chocochip/pen/zYxMgRG -- popover idea

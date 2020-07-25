@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+.homeContainer{
+  margin-top: 20px;
+  color: #fff;
+}
+
+.btn{
+  text-decoration: none;
+  background-color:#3a9fff;
+  border-radius: 20px;
+  padding: 10px 25px;
+  color: #fff;
+  box-shadow: 0px 18px 13px -6px rgba(0, 0, 0,0.2);
+  transition: all 0.4s;
+-webkit-transition: all 0.4s;
+-moz-transition: all 0.4s;
+-ms-transition: all 0.4s;
+-o-transition: all 0.4s;
+font-family: 'Lato', sans-serif;
+font-size: 18px;
+font-weight: bold;
+}
+
+
+
+.btn:hover{
+box-shadow: 0px 25px 18px -6px rgba(0, 0, 0,0.2);
+background-color: #63b2fc;
+color: #fff;
+}
+
+.btn--width{
+  width: 120px;
+}
+
+.site{
+  text-align: center;
+}
+.site__title{
+    font-size: 30px;
+    margin: 0;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    justify-content: center;
+}
+
+.site__subtitle{
+    font-size: 22px;
+    color: #fff;
+    margin: 15px 0 40px 0;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.site__img{
+  opacity: 1;
+  margin-top: 30px;
+  display: inline-block;
+  width: 50%;
+}
+.site__box-link .btn--revert{
+  margin-left: 15px;
+}
+
+.site {
+  position: relative;
+  z-index: 999;
+  text-transform: capitalize;
+  opacity: 0.9;
+}
+
+.btn_signin {
+  margin-left: 20px;
+  background-color: #d58936;
+}
+
+.btn_signin:hover {
+  background-color: lighten( #d58936, 10%);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

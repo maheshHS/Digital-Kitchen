@@ -1,0 +1,29 @@
+<div class="new_purchase_container">
+  <%=form_for(@purchase, :html=> {:class=> "make_purchase_form"}) do |f|%>
+    <div class="purchase_heading">
+      <h2>Purchase</h2>
+    </div>
+    <div>
+      <%=f.label :Date, class: "purchase_label"%>
+      <%= f.text_field :created_at,value: f.object.created_at.to_date ,class: "purchase_input",:disabled=>true%>
+    </div>
+    <div>
+      <%=f.label :User, class: "purchase_label"%>
+      <%= f.text_field :seller,value: User.find(f.object.user_id).fullname, class: "purchase_input",:disabled=>true%>
+    </div>
+    <div>
+      <%=f.label :Seller, class: "purchase_label"%>
+      <%= f.text_field :seller, class: "purchase_input",:disabled=>true%>
+    </div>
+    <div>
+      <%=f.label :Cost, class: "purchase_label"%>
+      <%= f.text_field :cost, class: "purchase_input",:disabled=>true%>
+    </div>
+    <div class="fields">
+      <%= f.label :Materials, class: "purchase_label" %>
+      <%= f.fields_for :items do |builder|%>
+        <%= render 'showItem', b: builder, itm_q: 0 %>
+      <% end %>
+    </div>
+  <%end%>
+</div>

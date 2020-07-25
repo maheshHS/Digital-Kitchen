@@ -1,0 +1,11 @@
+<div>
+    <span class="purchase_material_row">
+        <%= b.select :id, Item.all.collect { |p| [ p.title, p.id ] },{ include_blank: false }, { :class => 'purchase_input purchase_select show_purchase1', :disabled=>true} %> 
+        <%= b.hidden_field :_destroy %>
+        <% item = Item.where(id: b.object.id).first%>
+        <%#= debug Purchaseitem.where(purchase: @purchase, item: item).first.try(:quantity)%>
+        <%= b.text_field :purchaseitem_ids, label: false, value: Purchaseitem.where(purchase: @purchase, item: item).first.try(:quantity), class:"purchase_input show_purchase2",:disabled=>true %>
+        <%= b.text_field :merge_table_ids, label: false, value: Purchaseitem.where(purchase: @purchase, item: item).first.try(:cost), class:"purchase_input show_purchase2",:disabled=>true  %>
+    </span>
+</div>
+

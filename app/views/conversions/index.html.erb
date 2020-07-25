@@ -1,0 +1,48 @@
+<div class="ConversionContainer">
+  <% items = @items.map { |c| [c.title, c.id] } %>
+  <table class="item-table">
+    <thead>
+      <tr>
+        <th> No</th>
+        <th> Raw Material </th>
+        <th> Qunatity </th>
+        <th> Conversion Value </th>
+        <th></th>
+        <th></th>
+      </tr>
+      <tbody class="item-body">
+        <% @conversions.each_with_index do |conv, index| %>
+          <%= render 'conversion_fields', conv: conv, index: index %>
+        <% end %>
+        <%# @add_conversions.each do |conversion| %>
+          <%# =fields_for "add_conversions[#{conversion.object_id}]", conversion do |builder| %>
+            <% # =render 'conversion_fields', f:builder %>
+            <% # end %>
+            <% # end %>
+          </tbody>
+        </thead>
+      </table>
+      <div class="converion-actions">
+        <!-- <%= submit_tag "Save", class: "save_conversion"%> -->
+        <%  # = link_to "Save", {:action => :create }, :method => :post %>
+        <%= link_to "Add", {},class: "add_cov_btn" %>
+        <% # =link_to_add_conversion "Add Row" %>
+      </div>
+    </div>
+    <div class="conversion_modal_background">
+      <%= form_for(@conversion, :html=> {:class=> "conversion_modal"})   do |ff|%>
+        <%= ff.label "Name"%>
+        <%= ff.select(:name, options_for_select(@items.map{ |c| [c.title, c.title]})) %>
+        <%= ff.label "Qunatity"%>
+        <%= ff.text_field :quantity %>
+        <%= ff.label "Conversion Value"%>
+        <%= ff.text_field :converted_quant %>
+        <%= ff.submit "Save"%>
+        <div class="modal_remove">
+          <span>
+            <i class="fas fa-times"></i>
+          </span>
+        </div>
+      <% end %>
+    </div>
+    <%= javascript_pack_tag 'conversions' %>

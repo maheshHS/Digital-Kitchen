@@ -1,0 +1,340 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
+.ConversionContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    height: 90%;
+    .item-table {
+        opacity: 0.9;
+        font-family: "Montserrat", sans-serif;
+        color: #fff;
+        font-size: 1.2rem;
+    }
+}
+
+.item-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    //font-size: 1.5em;
+    width: 65%;
+}
+
+.item-table thead tr {
+    background-color: rgba(255, 78, 0, 0.5);
+    color: #fff;
+    text-align: left;
+    font-weight: bold;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    font-weight: 900;
+    font-size: 1.4rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.item-table th,
+.item-table td {
+    padding: 12px 15px;
+}
+
+.item-table tbody tr {
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-bottom: 1px solid #dddddd;
+}
+
+// .item-table tbody tr:nth-of-type(even){
+//     background-color: #6d4040;
+// }
+
+.item-table tbody tr:last-of-type {
+    border-bottom: 2px solid rgba(255, 78, 0, 0.2);
+}
+
+.item-table {
+    position: relative;
+}
+
+.converion-actions {
+    position: relative;
+    z-index: 999;
+    margin-top: auto;
+    margin-bottom: 25px;
+    font-family: "Montserrat", sans-serif;
+    a {
+        margin-left: 20px;
+        align-items: center;
+        color: #fff;
+        background-color: #d58936;
+        border: none;
+        padding: 15px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1.1rem;
+        cursor: pointer !important;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+}
+
+.add_conversion_row td input {
+    width: 100%;
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid #fff;
+    background: transparent;
+    font-size: 1.1rem;
+    color: #fff;
+    opacity: 0.9;
+    font-weight: bold;
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill {
+        transition: all 5000s ease-in-out 0s;
+        transition-property: background-color, color;
+        -webkit-text-fill-color: #fff !important;
+        font-weight: bold !important;
+        font-size: 1rem;
+    }
+    font-family: "Montserrat", sans-serif !important;
+    height: 30px !important;
+}
+
+// .save_conversion{
+//     font-family: 'Montserrat', sans-serif !important;
+//     border: none;
+//     text-decoration: none;
+//     background-color:#3a9fff;
+//     border-radius: 5px;
+//     padding: 10px 25px;
+//     color: #fff;
+//     box-shadow: 0px 18px 13px -6px rgba(0, 0, 0,0.2);
+//     transition: all 0.4s;
+//   -webkit-transition: all 0.4s;
+//   -moz-transition: all 0.4s;
+//   -ms-transition: all 0.4s;
+//   -o-transition: all 0.4s;
+//   font-family: 'Lato', sans-serif;
+//   font-size: 18px;
+//   height: 50px;
+//   width: 110px;
+//   font-weight: bold;
+//   align-items: center;
+//   opacity: 0.9;
+// }
+
+.i_edit {
+    color: #0fabbc;
+    cursor: pointer;
+}
+
+.i_delete {
+    color: #e7305b;
+    cursor: pointer;
+}
+
+.converion-actions .add_cov_btn {
+    width: 90px !important;
+}
+
+// Styling For Add Modal Conversions
+
+.conversion_modal_background{
+    transition: all 0.5s linear;
+    display: none !important;
+    font-family: "Montserrat", sans-serif;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    .conversion_modal{
+        transition: all 0.5s linear;
+        position: relative;
+        font-size: 1.3rem;
+        height: 45%;
+        width: 30%;
+        background-color: #fff;
+        opacity: 0.9;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column !important;
+        & > * {
+            margin: 5px;
+            font-weight: 500;
+        }
+
+        & > input[type="text"] {
+            border: 0;
+            outline: 0;
+            border-bottom: 2px solid #500033;
+            background: transparent;
+            font-size: 1.1rem;
+            color: black;
+            opacity: 0.9;
+            font-family: inherit;
+            font-weight: 500;
+        }
+
+        & > input[type="submit"] {
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 25px;
+            color: #fff;
+            background-color: #3a9fff;
+            cursor: pointer;
+            margin-top: 12px;
+        }
+
+        select {
+            border: 0;
+            outline: 0;
+            border-bottom: 2px solid #500033;
+            background: transparent;
+            font-size: 1.1rem;
+            color: black;
+            opacity: 0.9;
+            font-weight: 500;
+            width: 62%;
+            cursor: pointer;
+            &:-webkit-autofill:focus,
+            &:-webkit-autofill:active,
+            &:-webkit-autofill:hover,
+            &:-webkit-autofill {
+                transition: all 5000s ease-in-out 0s;
+                transition-property: background-color, color;
+                -webkit-text-fill-color: #fff !important;
+                font-weight: bold !important;
+                font-size: 1rem;
+            }
+            font-family: "Montserrat", sans-serif !important;
+            option {
+                font-size: 1.1rem !important;
+                color: #500033;
+            }
+        }
+    }
+}
+
+.modal_remove{
+    transition: all 0.5s linear;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    visibility: visible;
+    font-size: 25px;
+    color: #500033;
+    cursor: pointer;
+}
+
+.modal_conv_add {
+    transition: all 0.5s linear;
+    display: flex !important;
+}
+
+.conversion_modal_background2{
+    visibility: hidden;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .conversion_modal2{
+        transition: all 0.5s linear;
+        position: relative;
+        font-size: 1.3rem;
+        height: 45%;
+        width: 30%;
+        background-color: #fff;
+        opacity: 0.9;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column !important;
+        & > * {
+            margin: 5px;
+            font-weight: 500;
+        }
+
+        & > input[type="text"] {
+            border: 0;
+            outline: 0;
+            border-bottom: 2px solid #500033;
+            background: transparent;
+            font-size: 1.1rem;
+            color: black;
+            opacity: 0.9;
+            font-family: inherit;
+            font-weight: 500;
+        }
+
+        & > input[type="submit"] {
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 25px;
+            color: #fff;
+            background-color: #3a9fff;
+            cursor: pointer;
+            margin-top: 12px;
+        }
+
+        select {
+            border: 0;
+            outline: 0;
+            border-bottom: 2px solid #500033;
+            background: transparent;
+            font-size: 1.1rem;
+            color: black;
+            opacity: 0.9;
+            font-weight: 500;
+            width: 62%;
+            cursor: pointer;
+            &:-webkit-autofill:focus,
+            &:-webkit-autofill:active,
+            &:-webkit-autofill:hover,
+            &:-webkit-autofill {
+                transition: all 5000s ease-in-out 0s;
+                transition-property: background-color, color;
+                -webkit-text-fill-color: #fff !important;
+                font-weight: bold !important;
+                font-size: 1rem;
+            }
+            font-family: "Montserrat", sans-serif !important;
+            option {
+                font-size: 1.1rem !important;
+                color: #500033;
+            }
+        }
+    }
+}
+
+.modal_remove2 {
+    visibility: hidden !important;
+    transition: all 0.5s linear;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    visibility: visible;
+    font-size: 25px;
+    color: #500033;
+    cursor: pointer;
+}
+
+.modal_conv_add2 {
+    visibility: visible !important;
+}
