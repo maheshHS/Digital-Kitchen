@@ -33,4 +33,4 @@ production:
   #database: db/production.sqlite3
   #database: digital_kitchen_production
   database: <%= ENV['DATABASE_URL']%>
-  password: <%= ENV['DIGITAL_KITCHEN_PASSWORD']%>
+  password: <%= ENV['SPHOORTHYS-KITCHEN_DATABASE_PASSWORD']%>
