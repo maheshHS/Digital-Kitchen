@@ -20,8 +20,9 @@
             <h2 class="modal_heading">Add Raw Material</h2>
             <%=f.label :title, class: "modal_label "%>
             <%=f.text_field :title, class:"modal_input "%>
-            <%#=f.label :description, class: "modal_label "%>
-            <%#=f.text_field :description, class: "modal_input "%>
+            <%=f.label :purchase_units, class: "modal_label "%>
+            <%#=f.text_field :purchase_units, class: "modal_input "%>
+            <%= f.select :purchase_units, ['KGS', 'BOX', 'PKT', 'NOS', 'BOT'],{ include_blank: false }, { :class => 'modal_select_unit' }%>
             <%=f.label :Cost, class: "modal_label "%>
             <%=f.text_field :cost, class: "modal_input "%>
             <%= submit_tag "Create", class:"item_save" %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_24_141437) do
+ActiveRecord::Schema.define(version: 2020_08_01_063225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2020_07_24_141437) do
     t.integer "converted_quant"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "purchase_units"
+    t.string "conversion_units"
   end
 
   create_table "inventories", force: :cascade do |t|
@@ -28,6 +30,7 @@ ActiveRecord::Schema.define(version: 2020_07_24_141437) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.integer "user_id"
+    t.string "selling_units"
   end
 
   create_table "items", force: :cascade do |t|
@@ -38,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_07_24_141437) do
     t.integer "t_qunatity"
     t.float "cost"
     t.integer "user_id"
+    t.string "purchase_units"
   end
 
   create_table "join_items", force: :cascade do |t|

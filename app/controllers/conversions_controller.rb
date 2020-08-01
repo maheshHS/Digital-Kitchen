@@ -42,6 +42,6 @@ class ConversionsController < ApplicationController
     private
 
     def conversions_params
-        params.require(:conversion).permit(:name, :quantity, :converted_quant)
+        params.require(:conversion).permit(:name, :quantity, :converted_quant, :conversion_units)
     end
 end

@@ -1,4 +1,3 @@
-          
 <tr class="td_class">
   <td><%=index + 1%></td>
   <td><%=conv.name%></td>
@@ -9,10 +8,14 @@
       <%= form_for( conv, :method => :put ,:html=> {:class=> "conversion_modal2"})   do |fff|%>
         <%= fff.label "Name"%>
         <%= fff.text_field :name, :readonly => true%>
+        <%= fff.label "purchase_units"%>
+        <%= fff.select :purchase_units, ['KGS', 'BOX', 'PKT', 'NOS', 'BOT'],{ include_blank: false }, { :class => 'modal_select_unit' }%>
         <%= fff.label "Qunatity"%>
         <%= fff.text_field :quantity %>
         <%= fff.label "Conversion Value"%>
         <%= fff.text_field :converted_quant %>
+        <%= fff.label "conversion_units"%>
+        <%= fff.select :conversion_units, ['KGS', 'BOX', 'PKT', 'NOS', 'BOT'],{ include_blank: false }, { :class => 'modal_select_unit' }%>
         <%= fff.submit "Update"%>
         <div class="modal_remove2">
           <span>

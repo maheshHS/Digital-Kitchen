@@ -158,7 +158,7 @@
         transition: all 0.5s linear;
         position: relative;
         font-size: 1.3rem;
-        height: 45%;
+        height: 65%;
         width: 30%;
         background-color: #fff;
         opacity: 0.9;
@@ -244,6 +244,7 @@
 .conversion_modal_background2{
     visibility: hidden;
     position: fixed !important;
+    background-color: rgba(0, 0, 0, 0.5);
     top: 0;
     left: 0;
     height: 100%;
@@ -256,7 +257,7 @@
         transition: all 0.5s linear;
         position: relative;
         font-size: 1.3rem;
-        height: 45%;
+        height: 65%;
         width: 30%;
         background-color: #fff;
         opacity: 0.9;

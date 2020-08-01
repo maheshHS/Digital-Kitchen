@@ -35,8 +35,12 @@
         <%= ff.select(:name, options_for_select(@items.map{ |c| [c.title, c.title]})) %>
         <%= ff.label "Qunatity"%>
         <%= ff.text_field :quantity %>
+        <%= ff.label "purchase_units"%>
+        <%= ff.select :purchase_units, ['KGS', 'BOX', 'PKT', 'NOS', 'BOT'],{ include_blank: false }, { :class => 'modal_select_unit' }%>
         <%= ff.label "Conversion Value"%>
         <%= ff.text_field :converted_quant %>
+        <%= ff.label "conversion_units"%>
+        <%= ff.select :conversion_units, ['KGS', 'BOX', 'PKT', 'NOS', 'BOT'],{ include_blank: false }, { :class => 'modal_select_unit' }%>
         <%= ff.submit "Save"%>
         <div class="modal_remove">
           <span>

@@ -185,7 +185,7 @@ $black: #000;
         border-radius: 5px;
         z-index: 1000;
         width: 30%;
-        height: 40%;
+        height: 46%;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -228,6 +228,14 @@ $black: #000;
             border-bottom: 2px solid #500033;
             background: transparent;
             font-size: 1.1rem;
+        }
+        .modal_select_unit {
+            border: 0;
+            outline: 0;
+            border-bottom: 2px solid #500033;
+            background: transparent;
+            font-size: 1.1rem;
+            width: 60%;
         }
     }
 }
