@@ -22,7 +22,7 @@
                 <%quant = item.merge_tables.where(inventory: inventory, item: item).first.quantity%>
                 <%= "(" if quant%>
                 <%= quant  if quant%>
-                <%= Conversion.find_by(name: item.title).conversion_units%>
+                <%= Conversion.find_by(name: item.title).conversion_units if Conversion.find_by(name: item.title).conversion_units%>
                 <%= ")" if quant%>
               </p>
             <%end%>
