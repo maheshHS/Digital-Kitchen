@@ -12,7 +12,7 @@
       <%= f.text_field :cost, class: "purchase_input"%>
     </div>
     <div class="fields">
-      <%= f.label :Select_Materials, class: "purchase_label" %>
+      <%= f.label :Select_Materials, class: "purchase_label select_materials_label" %>
       <%= f.fields_for  :items do |builder|%>
         <%= render 'item', b: builder, itm_q: 0 %>
       <% end %>

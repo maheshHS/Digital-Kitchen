@@ -2,14 +2,18 @@
     <span class="raw_internal">
         <%= b.select :id, Item.all.collect { |p| [ p.title, p.id ] },{ include_blank: false }, { :class => 'prod_input prod_select' } %> 
         <%= b.hidden_field :_destroy %>
-        <% #itm_id = b.object.id%>
-        <%#= debug Item.where(id: itm_id)%>
+        <% itm_id = b.object.id%>
+        <% itm =  Item.where(id: itm_id).first%>
         <%#a = Item.where(id: itm_id).first.merge_tables.where(inventory: @inventory, item_id: itm_id).first.quantity%>
         <%#=b.text_field :merge_table_ids, label: false, value: itm_q, class:"prod_input prod_inp_quant"%>
         <%#= debug @inventory.items.where(id: a).first %>
         <%#= debug @inventory.items.where(id: 1).first.id%>
         <%#= debug b.object.join_item %>
         <%= b.text_field :merge_table_ids, label: false, value: itm_q, class:"prod_input prod_inp_quant"%>
+        <% unit = Conversion.find_by(name: itm.try(:title)).conversion_units if Conversion.find_by(name: itm.try(:title))%>
+        <%#= b.label unit%>
+        <%=b.text_field :purchase_units, value: unit, class:"prod_input prod_inp_quant" %>
+        <%#= b.select :purchase_units, ['KGS', 'BOX', 'PKT', 'NOS', 'BOT'],{ include_blank: false }, { :class => 'modal_select_unit' }%>
         <%= link_to '<i class="fas fa-trash-alt icon_delete"></i>'.html_safe, '#', class: 'remove_raw'%>
     </span>
 </div>
