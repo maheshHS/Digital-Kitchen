@@ -1,29 +1,57 @@
 <div class="new_purchase_container">
-  <%=form_for(@purchase, :html=> {:class=> "make_purchase_form"}) do |f|%>
-    <div class="purchase_heading">
+  <%=form_for(@purchase, :html=> {:class=> "make_purchase_form purchase_show_form"}) do |f|%>
+    <div class="purchase_heading show_purchase_heading">
       <h2>Purchase</h2>
     </div>
-    <div>
-      <%=f.label :Date, class: "purchase_label"%>
-      <%= f.text_field :created_at,value: f.object.created_at.to_date ,class: "purchase_input",:disabled=>true%>
+    <div class="show_purchase">
+      <div>
+        <%#=f.label :Date, class: "purchase_label"%>
+        <%#= f.text_field :created_at,value: f.object.created_at.to_date ,class: "purchase_input",:disabled=>true%>
+        <pre>Date   : <%= @purchase.try(:created_at).to_date%></pre>
+      </div>
+      <div>
+        <%#=f.label :User, class: "purchase_label"%>
+        <%#= f.text_field :seller,value: User.find(f.object.user_id).fullname, class: "purchase_input",:disabled=>true%>
+        <pre>User   : <%= User.find(f.object.user_id).try(:fullname)%></pre>
+      </div>
+      <div>
+        <%#=f.label :Seller, class: "purchase_label"%>
+        <%#= f.text_field :seller, class: "purchase_input",:disabled=>true%>
+        <pre>Seller : <%= @purchase.try(:seller)%></pre>
+      </div>
+      <div>
+        <%#=f.label :Cost, class: "purchase_label"%>
+        <%#= f.text_field :cost, class: "purchase_input",:disabled=>true%>
+        <pre>Cost   : <%= @purchase.try(:cost)%></pre>
+      </div>
     </div>
-    <div>
-      <%=f.label :User, class: "purchase_label"%>
-      <%= f.text_field :seller,value: User.find(f.object.user_id).fullname, class: "purchase_input",:disabled=>true%>
-    </div>
-    <div>
-      <%=f.label :Seller, class: "purchase_label"%>
-      <%= f.text_field :seller, class: "purchase_input",:disabled=>true%>
-    </div>
-    <div>
-      <%=f.label :Cost, class: "purchase_label"%>
-      <%= f.text_field :cost, class: "purchase_input",:disabled=>true%>
-    </div>
-    <div class="fields">
-      <%= f.label :Materials, class: "purchase_label" %>
-      <%= f.fields_for :items do |builder|%>
-        <%= render 'showItem', b: builder, itm_q: 0 %>
-      <% end %>
+    <!--<div class="fields"> 
+      <%#= f.label :Materials, class: "purchase_label" %>
+      <%#= f.fields_for :items do |builder|%>
+        <%#= render 'showItem', b: builder, itm_q: 0 %>
+      <%# end %> 
+    </div> -->
+    <div class="show_items_table_container">
+      <table class="item-table purchase-table show_purchse_items">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Item </th>
+            <th>Quantity</th>
+            <th>Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @purchase.items.each_with_index do |item, index| %>
+            <tr>
+              <td><%= index + 1 %></td>
+              <td><%= item.title%></td>
+              <td><%= Purchaseitem.find_by(purchase: @purchase, item: item).try(:quantity)%></td>
+              <td><%= Purchaseitem.find_by(purchase: @purchase, item: item).try(:cost)%></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   <%end%>
 </div>
