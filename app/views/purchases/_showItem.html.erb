@@ -4,8 +4,8 @@
         <%= b.hidden_field :_destroy %>
         <% item = Item.where(id: b.object.id).first%>
         <%#= debug Purchaseitem.where(purchase: @purchase, item: item).first.try(:quantity)%>
-        <%= b.text_field :purchaseitem_ids, label: false, value: Purchaseitem.where(purchase: @purchase, item: item).first.try(:quantity), class:"purchase_input show_purchase2",:disabled=>true %>
-        <%= b.text_field :merge_table_ids, label: false, value: Purchaseitem.where(purchase: @purchase, item: item).first.try(:cost), class:"purchase_input show_purchase2",:disabled=>true  %>
+        <%= b.text_field :purchaseitem_ids, label: false, value: Purchaseitem.where(purchase: @purchase, item: item).first.try(:quantity), class:"purchase_input show_purchase2",:disabled=>true, 'title'=>'Quantity' %>
+        <%= b.text_field :merge_table_ids, label: false, value: Purchaseitem.where(purchase: @purchase, item: item).first.try(:cost), class:"purchase_input show_purchase2",:disabled=>true,'title'=>'Cost' %>
     </span>
 </div>
 

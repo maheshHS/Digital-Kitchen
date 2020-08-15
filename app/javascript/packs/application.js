@@ -55,5 +55,9 @@ $(document).on('turbolinks:load', function () {
 });
 
 
+$(function(){
+    $("a[rel='tooltip']").tooltip();
+})
+
 
 

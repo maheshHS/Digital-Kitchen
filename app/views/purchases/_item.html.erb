@@ -1,10 +1,10 @@
 <div>
     <span class="purchase_material_row">
-        <%= b.select :id, Item.all.collect { |p| [ p.title, p.id, { 'cost' => p.cost, 'inp_id' => b.options[:child_index] } ] },{ include_blank: false }, { :class => 'purchase_input purchase_select purchase_select2', :onchange => 'handleChange(event)', id: 'id_select_'+b.options[:child_index].to_s } %> 
+        <%= b.select :id, Item.all.collect { |p| [ p.title, p.id, { 'cost' => p.cost, 'inp_id' => b.options[:child_index] } ] },{ include_blank: false }, { :class => 'purchase_input purchase_select purchase_select2', :onchange => 'handleChange(event)', id: 'id_select_'+b.options[:child_index].to_s, 'title'=>'Raw material' } %> 
         <%= b.hidden_field :_destroy %>
         <%#= debug b.options[:child_index]%>
-        <%= b.text_field :purchaseitem_ids, label: false, value: itm_q, class:"purchase_input purchase_input2"%>
-        <%= b.text_field :merge_table_ids, label: false, value: Item.where(b.object.id).first.cost, class:"purchase_input purchase_input2", id: 'id_cost_'+b.options[:child_index].to_s %>
+        <%= b.text_field :purchaseitem_ids, label: false, value: itm_q, class:"purchase_input purchase_input2",'title'=>'Quantity'%>
+        <%= b.text_field :merge_table_ids, label: false, value: Item.where(b.object.id).first.cost, class:"purchase_input purchase_input2", id: 'id_cost_'+b.options[:child_index].to_s,'title'=>'Cost' %>
         <%= link_to '<i class="fas fa-trash-alt icon_delete"></i>'.html_safe, '#', class: 'remove_btn'%>
     </span>
 </div>
