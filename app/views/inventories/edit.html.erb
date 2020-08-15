@@ -1,9 +1,14 @@
 <div class="form_container">
-  <h2 class="">Add Product</h2>
+  <h2 class="">Edit Product</h2>
   <%=form_for(@inventory, :html=> {:class=> "add_prod_form"}) do |f|%>
     <div>
       <%=f.label :name, class: "prod_label"%>
       <%=f.text_field :name, class:"prod_input"%>
+    </div>
+    <div>
+      <%=f.label "Units", class: "prod_label"%>
+      <%= f.select :selling_units, ['KGS', 'BOX', 'PKT', 'NOS', 'BOT'],{ include_blank: false }, { :class => 'purchase_input purchase_select select_purchase_unit' }%>
+      <%#=f.text_field :selling_units, class:"prod_input"%>
     </div>
     <div class="fields">
       <%= f.label :Select_Raw_Materials, class: "prod_label" %>

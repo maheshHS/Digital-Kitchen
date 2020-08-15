@@ -1,6 +1,7 @@
 <div>
     <span class="raw_internal">
-        <%= b.select :id, Item.all.collect { |p| [ p.title, p.id ] },{ include_blank: false }, { :class => 'prod_input prod_select' } %> 
+        <%= b.select :id, Item.all.collect { |p| [ p.title, p.id,{'unit' => Conversion.find_by(name: Item.find(p.id).try(:title)).try(:conversion_units), 'inp_id' => b.options[:child_index]} ] },
+        { include_blank: false }, { :class => 'prod_input prod_select', :onchange => 'handleChange(event)', id: 'id_select_'+b.options[:child_index].to_s } %> 
         <%= b.hidden_field :_destroy %>
         <% itm_id = b.object.id%>
         <% itm =  Item.where(id: itm_id).first%>
@@ -9,12 +10,20 @@
         <%#= debug @inventory.items.where(id: a).first %>
         <%#= debug @inventory.items.where(id: 1).first.id%>
         <%#= debug b.object.join_item %>
-        <%= b.text_field :merge_table_ids, label: false, value: itm_q, class:"prod_input prod_inp_quant"%>
+        <%= b.text_field :merge_table_ids, label: false, value: itm_q, class:"prod_input prod_inp_quant tooltip"%>
         <% unit = Conversion.find_by(name: itm.try(:title)).conversion_units if Conversion.find_by(name: itm.try(:title))%>
-        <%#= b.label unit%>
-        <%=b.text_field :purchase_units, value: unit, class:"prod_input prod_inp_quant" %>
+        <%# b.label unit%>
+        <%= text_field_tag :virtual_unit, unit , class:"prod_input prod_inp_quant", disabled: true, id: 'id_unit_'+b.options[:child_index].to_s %>
         <%#= b.select :purchase_units, ['KGS', 'BOX', 'PKT', 'NOS', 'BOT'],{ include_blank: false }, { :class => 'modal_select_unit' }%>
         <%= link_to '<i class="fas fa-trash-alt icon_delete"></i>'.html_safe, '#', class: 'remove_raw'%>
     </span>
 </div>
 
+<script>
+    function handleChange(event) {
+        src_id = event.srcElement.id;
+        value = $('#'+src_id).find(':selected').attr('unit');
+        inp_id = $('#'+src_id).find(':selected').attr('inp_id');
+        $('#id_unit_'+inp_id).val(value);
+    }
+</script>
