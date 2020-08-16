@@ -3,8 +3,8 @@
         <%= b.select :id, Item.all.collect { |p| [ p.title, p.id, { 'cost' => p.cost, 'inp_id' => b.options[:child_index] } ] },{ include_blank: false }, { :class => 'purchase_input purchase_select purchase_select2', :onchange => 'handleChange(event)', id: 'id_select_'+b.options[:child_index].to_s, 'title'=>'Raw material' } %> 
         <%= b.hidden_field :_destroy %>
         <%#= debug b.options[:child_index]%>
-        <%= b.text_field :purchaseitem_ids, label: false, value: itm_q, class:"purchase_input purchase_input2",'title'=>'Quantity'%>
-        <%= b.text_field :merge_table_ids, label: false, value: Item.where(b.object.id).first.cost, class:"purchase_input purchase_input2", id: 'id_cost_'+b.options[:child_index].to_s,'title'=>'Cost' %>
+        <%= b.text_field :purchaseitem_ids, label: false, value: 1, class:"purchase_input purchase_input2",'title'=>'Quantity',:onchange => 'handleQuantChange(event)', id: 'id_quant_'+b.options[:child_index].to_s, inp_id: b.options[:child_index] %>
+        <%= b.text_field :merge_table_ids, label: false, value: Item.find_by(b.object.id).try(:cost), class:"purchase_input purchase_input2", id: 'id_cost_'+b.options[:child_index].to_s,'title'=>'Cost', inp_id: b.options[:child_index] %>
         <%= link_to '<i class="fas fa-trash-alt icon_delete"></i>'.html_safe, '#', class: 'remove_btn'%>
     </span>
 </div>
@@ -15,6 +15,24 @@
         value = $('#'+src_id).find(':selected').attr('cost');
         inp_id = $('#'+src_id).find(':selected').attr('inp_id');
         $('#id_cost_'+inp_id).val(value);
+    }
+    handleQuantChange = (event) => {
+        src_id = event.srcElement.id;
+        Quant = $('#'+src_id).val();
+        inp_id = document.querySelector('#'+src_id).getAttribute('inp_id');
+        initial_cost = $('#id_select_'+inp_id).find(':selected').attr('cost')
+        total_line_cost = parseInt(Quant) * parseInt(initial_cost);
+        prev_cost = $('#id_cost_'+inp_id);
+        total_cost = $('#total_cost').val();
+        total_cost = parseInt(total_cost);
+        if(total_cost > 0 || total_cost == NaN){
+            total_cost = total_cost - prev_cost;
+        }else {
+            total_cost = 0;
+        }
+        $('#id_cost_'+inp_id).val(total_line_cost);
+        total_cost = total_cost + total_line_cost;
+        $('#total_cost').val(total_cost); 
     }
 </script>
 

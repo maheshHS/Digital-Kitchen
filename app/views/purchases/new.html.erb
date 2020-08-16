@@ -1,5 +1,5 @@
 <div class="new_purchase_container">
-  <%=form_for(@purchase, :html=> {:class=> "make_purchase_form"}) do |f|%>
+  <%=form_for(@purchase, :html=> {:class=> "make_purchase_form purchase_container_add"}) do |f|%>
     <div class="purchase_heading">
       <h2>Purchase</h2>
     </div>
@@ -9,8 +9,9 @@
     </div>
     <div>
       <%=f.label :Cost, class: "purchase_label"%>
-      <%= f.text_field :cost, class: "purchase_input"%>
+      <%= f.text_field :cost, class: "purchase_input", id: 'total_cost'%>
     </div>
+   
     <div class="fields">
       <%= f.label :Select_Materials, class: "purchase_label select_materials_label" %>
       <%= f.fields_for  :items do |builder|%>
