@@ -22,7 +22,7 @@
         inp_id = document.querySelector('#'+src_id).getAttribute('inp_id');
         initial_cost = $('#id_select_'+inp_id).find(':selected').attr('cost')
         total_line_cost = parseInt(Quant) * parseInt(initial_cost);
-        prev_cost = $('#id_cost_'+inp_id);
+        prev_cost = parseInt($('#id_cost_'+inp_id).val());
         total_cost = $('#total_cost').val();
         total_cost = parseInt(total_cost);
         if(total_cost > 0 || total_cost == NaN){

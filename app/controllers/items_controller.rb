@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
         @item = Item.new(item_params)
         @item.user_id = current_user.id
         if @item.save   
-            flash[:notice] = 'Item Saved'   
+            flash[:success] = 'Item Saved'   
             redirect_to items_path 
           else   
             flash[:error] = 'Item Save Unsuccessfull'   
@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
         @item = Item.find(params[:id])
         @item.inventories.clear    
         if @item.delete   
-          flash[:notice] = 'Item deleted!'   
+          flash[:success] = 'Item deleted!'   
           redirect_to items_path   
         else   
           flash[:error] = 'Failed to delete this Item!'   
@@ -41,7 +41,7 @@ class ItemsController < ApplicationController
       @item = Item.find(params[:id]) 
       @item.user_id = current_user.id
       if @item.update(item_params) 
-        flash[:notice] = 'Item updated!'   
+        flash[:success] = 'Item updated!'   
         redirect_to items_path  
       else   
         flash[:error] = 'Failed to edit Item!'   

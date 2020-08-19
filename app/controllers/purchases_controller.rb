@@ -40,7 +40,7 @@ class PurchasesController < ApplicationController
 
       #End
       if Purchaseitem.update(quant.keys, quant.values) and Item.update(i_quant.keys, i_quant.values)
-        flash[:notice] = "Product Saved"
+        flash[:success] = "Product Saved"
         redirect_to purchases_path
       else
         flash[:error] = "Product Save Unsuccessfull"

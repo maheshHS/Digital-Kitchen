@@ -12,12 +12,23 @@
     <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
     <script src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
     <!-- End -->
-
     <!--Favicon-->
     <%= favicon_link_tag asset_path('favicon.ico')%>
     <!--End -->
   </head>
   <body>
+    <!-- <%# if notice %>
+      <p class="notice"><%= notice %></p>
+    <%# elsif alert %>
+      <p class="alert"><%= alert %></p>
+    <%# end %> -->
+    
+      <% flash.each do |name, message|%>
+      <div class="flash_message_container <%= name %>" id="flash_wrapper">
+        <p class="flash_msg_body"><%= message %></p>
+      </div>
+      <% end %>
+    
     <!-- data-simplebar -->
     <div class="Container" >
       <div class="bg"></div>
@@ -25,5 +36,14 @@
       <%= yield %>
     </div>
     <%#= debug(params) if Rails.env.development? %>
+    <script>
+      $(document).ready(function() {
+        setTimeout(() => {
+          $('#flash_wrapper').fadeOut("slow", function() {
+          $(this).remove();
+        });
+      }, 1500);
+      });
+    </script>
   </body>
 </html>

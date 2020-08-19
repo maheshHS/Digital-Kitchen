@@ -9,7 +9,7 @@ class ConversionsController < ApplicationController
     def create
         @conversion = Conversion.new(conversions_params)
         if @conversion.save
-            flash[:notice] = 'Conversion Saved'   
+            flash[:success] = 'Conversion Saved'   
             redirect_to conversions_path
         else
             flash[:error] = 'Conversion Save failed'   
@@ -20,7 +20,7 @@ class ConversionsController < ApplicationController
     def destroy   
         @conversion = Conversion.find(params[:id])
         if @conversion.delete   
-          flash[:notice] = 'Conversion deleted!'   
+          flash[:success] = 'Conversion deleted!'   
           redirect_to conversions_path   
         else   
           flash[:error] = 'Delete Operation Failed'   
@@ -31,7 +31,7 @@ class ConversionsController < ApplicationController
     def update
         @conversion = Conversion.find(params[:id]) 
         if @conversion.update(conversions_params) 
-          flash[:notice] = 'Conversion updated!'   
+          flash[:success] = 'Conversion updated!'   
           redirect_to conversions_path  
         else   
           flash[:error] = 'Update Operation Failed'   

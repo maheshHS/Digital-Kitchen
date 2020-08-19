@@ -36,7 +36,7 @@ class InventoriesController < ApplicationController
         quant.store(val.id, { "quantity" => selval["merge_table_ids"].to_i })
       end
       if MergeTable.update(quant.keys, quant.values)
-        flash[:notice] = "Product Saved"
+        flash[:success] = "Product Saved"
         redirect_to inventories_path
       else
         flash[:error] = "Product Save Unsuccessfull"
@@ -52,7 +52,7 @@ class InventoriesController < ApplicationController
     @inventory = Inventory.find(params[:id])
     @inventory.items.clear
     if @inventory.delete
-      flash[:notice] = "Item deleted!"
+      flash[:success] = "Item deleted!"
       redirect_to inventories_path
     else
       flash[:error] = "Failed to delete this Item!"
@@ -89,7 +89,7 @@ class InventoriesController < ApplicationController
     end
     @inventory.user_id = current_user.id
     if @inventory.update(inventory_params) and MergeTable.update(quant.keys, quant.values)
-      flash[:notice] = "Item updated!"
+      flash[:success] = "Item updated!"
       redirect_to inventories_path
     else
       flash[:error] = "Failed to edit Item!"

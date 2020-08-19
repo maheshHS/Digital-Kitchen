@@ -16,6 +16,8 @@
 
  //@import "bootstrap/scss/bootstrap";
 //colors
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+
 $b1cd: #500033;
 $b1cl: #FF0077;
 $b2cd: #000050;
@@ -70,6 +72,33 @@ body {
     overflow-y: auto;
 }
 
+
+.flash_message_container {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    
+}
+
+.flash_msg_body {
+    padding: 1.25rem 0;
+    text-align: center;
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 2px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.success {
+    background: rgba(135, 216, 211, 0.85);
+}
+
+.error {
+    background: rgba(219, 55, 55, 0.65);
+}
 
 
 
