@@ -3,12 +3,14 @@
   <div class="site">
     <h1 class="site__title">Fast paced way to manage your business</h1>
     <h2 class="site__subtitle">Manage analytics like a boss</h2>
-    <% if !logged_in? %>
-      <div class="site__box-link">
-        <!--<a class="btn btn--width" href="<%=signup_path%>">Sign Up</a>-->
+    <div class="site__box-link">
+    <% if logged_in? && is_admin?%>
+      <a class="btn btn--width" href="<%=signup_path%>">Add User</a>
+    <% end %>
+      <% if !logged_in? %>
         <a class="btn btn--width btn_signin" href="<%=login_path%>">Log In</a>
-      </div>
-    <%end%>
+      <%end%>
+    </div>
     <img class="site__img" src="https://image.ibb.co/c7grYb/image3015.png">
   </div>
 </div>
